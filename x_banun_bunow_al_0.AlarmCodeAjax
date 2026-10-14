@@ -1,0 +1,25 @@
+var AlarmCodeAjax = Class.create();
+AlarmCodeAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    generateUniqueCode: function() {
+        return new x_banun_bunow_al_0.AlarmCodeHelper().generateUniqueCode();
+    },
+
+    checkCodeInUse: function() {
+        return new x_banun_bunow_al_0.AlarmCodeHelper().checkCodeInUse(
+            this.getParameter('sysparm_alarm_code'),
+            this.getParameter('sysparm_opened_for'));
+    },
+
+    getIssueAtBranch: function() {
+        return new x_banun_bunow_al_0.AlarmCodeHelper().getIssueAtBranch(
+            this.getParameter('sysparm_alarm_code'));
+    },
+
+    hasAlarmCode: function() {
+        return new x_banun_bunow_al_0.AlarmCodeHelper().hasAlarmCode(
+            this.getParameter('sysparm_employee'));
+    },
+
+    type: 'AlarmCodeAjax'
+});
