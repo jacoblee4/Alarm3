@@ -1,8 +1,6 @@
-
-The full current script of AlarmCodeAjax, pasted in.
-The alarm code table’s name.
-The branch reference field’s name.
-The building reference field’s name.
-The reference variable’s name (where they pick the user).
-The read-only variable’s name (shows the location).
-Whether the record producer is in the x_banun_bunow_al_0 scope too.
+The alarm code table’s name - x_banun_bunow_al_0_alarm_codes
+The branch reference field’s name - branch
+The building reference field’s name - building
+The reference variable’s name (where they pick the user). - alarm_code_location
+The read-only variable’s name (shows the location). alarm_code_location_read_only
+Whether the record producer is in the x_banun_bunow_al_0 scope too. - it is
