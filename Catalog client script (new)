@@ -1,0 +1,24 @@
+function onChange(control, oldValue, newValue, isLoading) {
+    var USER_FIELD = 'alarm_code_location';
+    var LOCATION_FIELD = 'alarm_code_location_read_only';
+
+    // User cleared: clear the location
+    if (!newValue) {
+        g_form.clearValue(LOCATION_FIELD);
+        return;
+    }
+
+    // Clear right away so the old location never shows next to a new user
+    g_form.clearValue(LOCATION_FIELD);
+
+    var ga = new GlideAjax('x_banun_bunow_al_0.AlarmCodeAjax');
+    ga.addParam('sysparm_name', 'getAlarmCodeLocation');
+    ga.addParam('sysparm_record_id', newValue);
+    ga.getXMLAnswer(function(answer) {
+        // Ignore stale responses if the selection changed again quickly
+        if (g_form.getValue(USER_FIELD) !== newValue) {
+            return;
+        }
+        g_form.setValue(LOCATION_FIELD, answer || '');
+    });
+}
