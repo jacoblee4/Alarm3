@@ -21,5 +21,24 @@ AlarmCodeAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
             this.getParameter('sysparm_employee'));
     },
 
+    getAlarmCodeLocation: function() {
+        var recordId = this.getParameter('sysparm_record_id');
+        if (!recordId) {
+            return '';
+        }
+
+        var gr = new GlideRecord('x_banun_bunow_al_0_alarm_codes');
+        if (!gr.get(recordId)) {
+            return '';
+        }
+
+        // Only one of these will have a value
+        var branch = gr.getDisplayValue('branch');
+        if (branch) {
+            return branch;
+        }
+        return gr.getDisplayValue('building') || '';
+    },
+
     type: 'AlarmCodeAjax'
 });
