@@ -1,1 +1,8 @@
 
+The full current script of AlarmCodeAjax, pasted in.
+The alarm code table’s name.
+The branch reference field’s name.
+The building reference field’s name.
+The reference variable’s name (where they pick the user).
+The read-only variable’s name (shows the location).
+Whether the record producer is in the x_banun_bunow_al_0 scope too.
